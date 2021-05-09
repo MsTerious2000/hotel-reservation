@@ -10,7 +10,8 @@
     "start": "nodemon node | ng serve --open",
     "build": "ng build --prod",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [],
   "author": "",
