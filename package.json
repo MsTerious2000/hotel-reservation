@@ -1,6 +1,9 @@
 {
   "name": "frontend",
   "version": "0.0.0",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node app.js \"ng serve\"",
@@ -41,5 +44,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MsTerious2000/hotel-reservation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MsTerious2000/hotel-reservation/issues"
+  },
+  "homepage": "https://github.com/MsTerious2000/hotel-reservation#readme"
 }
