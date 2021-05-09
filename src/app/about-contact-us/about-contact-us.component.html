@@ -1,0 +1,126 @@
+<style>
+    .content {
+        background-image: url('assets/images/background/background-dark.jpg');
+        background-size: cover;
+    }
+
+    .form-title {
+        font-family: "Matura MT Script Capitals";
+        font-size: 100px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 4px rgb(255, 255, 255);
+    }
+
+    .about {
+        text-indent: 40px;
+        font-family: "Pristina";
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    img {
+        margin: 10px;
+        width: 500px;
+        height: 500px;
+        border: 3px solid black;
+        border-radius: 20px;
+    }
+
+    .profile {
+        margin: 40px auto;
+    }
+
+    .student {
+        font-family: "Matura MT Script Capitals";
+        font-size: 65px;
+        text-align: center;
+        text-decoration: none;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 2px rgb(255, 255, 255);
+    }
+
+    .contactUs-row {
+        margin: auto;
+        width: 50%;
+    }
+
+    .typeEmail,
+    .sendFeedback {
+        font-family: "Century Gothic";
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    .submit-button {
+        margin: 10px auto;
+        width: 30%;
+        font-family: "Matura MT Script Capitals";
+        font-size: 25px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 20px;
+    }
+</style>
+
+<app-navbar-guest></app-navbar-guest>
+
+<div class="content container-fluid justify-content-center">
+    <h1 class="form-title text-center py-3">About - Contact Us</h1>
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <p class="about">
+                A guest succinctly characterized the experience at Casa de Quirrejacino as "marvelous and
+                extraordinary." Another guest said that the hotel provides the "best personalized service." The staff is
+                extremely helpful and one-of-a-kind.” As these guests said, "It's a magical experience on the isle of
+                gods."
+            </p>
+        </div>
+    </div>
+
+    <div class="container p-3">
+        <div class="row profile">
+            <div class="col">
+                <a class="student" href="https://web.facebook.com/mikhaelquibral" target="_blank">
+                    Mikhael Quibral
+                    <img src="assets/images/students/mikhael-quibral.jpg" alt="Mikhael Quibral">
+                </a>
+            </div>
+            <div class="col">
+                <a class="student" href="https://web.facebook.com/nininsemaj.guerrero" target="_blank">
+                    James Guerrero
+                    <img src="assets/images/students/ninin-guerrero.jpg" alt="James Guerrero">
+                </a>
+            </div>
+        </div>
+        <div class="row profile">
+            <div class="col">
+                <a class="student" href="https://web.facebook.com/lemtejadillo" target="_blank">
+                    Lemuel Tejadillo
+                    <img src="assets/images/students/lemuel-tejadillo.jpg" alt="Lemuel Tejadillo">
+                </a>
+            </div>
+            <div class="col">
+                <a class="student" href="https://web.facebook.com/michille.lucino" target="_blank">
+                    Michelle Lucino
+                    <img src="assets/images/students/michelle-lucino.jpg" alt="Michelle Lucino">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container p-5 form">
+        <form [formGroup]="feedbackForm">
+            <div class="row contactUs-row">
+                <input class="form-control m-1 py-4 typeEmail" type="email" placeholder="Type your email..."
+                    formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            </div>
+            <div class="row contactUs-row">
+                <textarea class="form-control m-1 p-3 sendFeedback" name="feedback" id="feedback" cols="30" rows="10"
+                    placeholder="Send us your feedback..." formControlName="feedback"
+                    [ngClass]="{ 'is-invalid': submitted && f.feedback.errors }"></textarea>
+            </div>
+            <div class="row contactUs-row">
+                <button class="btn btn-info submit-button" (click)="submit()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

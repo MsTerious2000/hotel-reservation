@@ -1,0 +1,58 @@
+<style>
+    form {
+        background-image: url('assets/images/background/background-light.jpg');
+        background-size: cover;
+        border: 5px solid black;
+        border-radius: 25px;
+    }
+
+    .form-title {
+        font-family: "Matura MT Script Capitals";
+        font-size: 100px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 4px rgb(255, 255, 255);
+    }
+
+    .form-control {
+        font-family: "Colonna MT";
+        font-size: 25px;
+        font-weight: bolder;
+    }
+
+    .form-buttons {
+        font-family: "Matura MT Script Capitals";
+        font-size: 20px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 20px;
+    }
+</style>
+
+<div class="container py-3">
+    <h1 class="form-title text-center">Login</h1>
+    <div class="row">
+        <div class="col-7 mx-auto text-center">
+            <form class="p-5" [formGroup]="loginForm">
+                <div class="form-group">
+                    <input class="form-control text-center" type="email" placeholder="Enter Email..." formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                </div>
+                <div class="form-group">
+                    <input class="form-control text-center" type="password" placeholder="Enter Password..."
+                        formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                </div>
+                <div class="form-group">
+                    <input class="form-control text-center" type="password" placeholder="Confirm Password..."
+                        formControlName="confirmPassword"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                </div>
+                <div class="form-group mx-5 mt-5">
+                    <button class="btn btn-block btn-warning form-buttons" type="button" (click)=login()>Login</button>
+                    <button class="btn btn-block btn-primary form-buttons" type="button"
+                        routerLink="/register">Register</button>
+                    <button class="btn btn-block btn-dark form-buttons" type="button" (click)="loginAsAdmin()">Login as
+                        Admin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

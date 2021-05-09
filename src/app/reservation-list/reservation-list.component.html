@@ -1,0 +1,52 @@
+<style>
+    .title-label {
+        font-family: "Matura MT Script Capitals";
+        font-size: 100px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 4px rgb(255, 255, 255);
+    }
+
+    .container {
+        border: 3px solid rgb(0, 0, 0);
+        border-radius: 20px;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .btn {
+        width: 40%;
+    }
+</style>
+
+<app-navbar-admin></app-navbar-admin>
+
+<h1 class="title-label text-center my-3">Reservations</h1>
+<div class="container bg-light">
+    <div class="table w-100 d-table">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Guest Name</th>
+                <th scope="col">Check-in</th>
+                <th scope="col">Check-out</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ reservation.guestName }}</td>
+                <td>{{ reservation.checkin }}</td>
+                <td>{{ reservation.checkout }}</td>
+                <td>{{ reservation.roomType }}</td>
+                <td>
+                    <button class="btn btn-info mr-2" routerLink="edit/{{ reservation._id }}">Edit</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(reservation._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </div>
+</div>

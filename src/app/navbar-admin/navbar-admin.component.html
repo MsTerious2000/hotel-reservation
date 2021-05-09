@@ -1,0 +1,45 @@
+<style>
+    nav {
+        opacity: 0.9;
+    }
+
+    .nav-link {
+        padding: 0;
+        font-family: "Colonna MT";
+        font-size: 30px;
+        font-weight: bolder;
+        text-align: center;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+    }
+
+    .nav-item {
+        border: 2px solid rgb(255, 193, 7);
+    }
+
+    .nav-item .nav-link:hover {
+        background-color: rgb(43, 41, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    .active {
+        background-color: rgb(150, 100, 0);
+        -webkit-text-fill-color: rgb(255, 255, 255);
+    }
+</style>
+<nav class="nav-expand-sm navbar-light bg-warning justify-content-center sticky-top">
+    <ul class="nav nav-pills nav-justified text-dark">
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="guestList">Guests List</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="reservations">Reservations</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="feedbacks">Feedbacks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</nav>

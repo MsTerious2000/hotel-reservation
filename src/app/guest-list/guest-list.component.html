@@ -1,0 +1,51 @@
+<style>
+    .title-label {
+        font-family: "Matura MT Script Capitals";
+        font-size: 100px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 4px rgb(255, 255, 255);
+    }
+
+    .table {
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+</style>
+
+<app-navbar-admin></app-navbar-admin>
+<h1 class="title-label text-center my-3">Guest List</h1>
+<div class="container-fluid">
+    <div class="table w-100 d-table bg-light">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let guest of guests; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ guest.firstName }}</td>
+                <td>{{ guest.middleName }}</td>
+                <td>{{ guest.lastName }}</td>
+                <td>{{ guest.address }}</td>
+                <td>{{ guest.contactNumber }}</td>
+                <td>{{ guest.gender }}</td>
+                <td>{{ guest.email }}</td>
+                <td>{{ guest.password }}</td>
+                <td>
+                    <button class="btn btn-block btn-info mr-1" routerLink="edit/{{ guest._id }}">Edit</button>
+                    <button class="btn btn-block btn-danger" (click)="delete(guest._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<style>
+    form {
+        background-image: url('assets/images/background/background-light.jpg');
+        background-size: cover;
+        border: 5px solid black;
+        border-radius: 25px;
+    }
+
+    .form-title {
+        font-family: "Matura MT Script Capitals";
+        font-size: 100px;
+        -webkit-text-fill-color: rgb(0, 0, 0);
+        -webkit-text-stroke: 4px rgb(255, 255, 255);
+    }
+
+    .form-control,
+    option {
+        font-family: "Colonna MT";
+        font-size: 25px;
+        font-weight: bolder;
+    }
+
+    .form-buttons {
+        font-family: "Matura MT Script Capitals";
+        font-size: 20px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 20px;
+    }
+</style>
+
+<div class="container py-3">
+    <h1 class="form-title text-center">Register</h1>
+    <div class="row">
+        <div class="col-9 mx-auto text-center">
+            <form class="p-5" [formGroup]="registerForm">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4">
+                            <input class="form-control text-center" type="text" placeholder="First Name..."
+                                formControlName="firstName"
+                                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control text-center" type="text" placeholder="Middle Name..."
+                                formControlName="middleName"
+                                [ngClass]="{ 'is-invalid': submitted && f.middleName.errors }">
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control text-center" type="text" placeholder="Last Name..."
+                                formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-control text-center" type="text" placeholder="Permanent Address..."
+                                formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <input class="form-control text-center" type="text" placeholder="Contact Number..."
+                                formControlName="contactNumber"
+                                [ngClass]="{ 'is-invalid': submitted && f.contactNumber.errors }">
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" name="gender" id="gender" formControlName="gender"
+                                [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                <option value="" disabled selected>Select Gender...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <input class="form-control text-center" type="email" placeholder="Enter Email..."
+                                formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control text-center" type="password" placeholder="Enter Password..."
+                                formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mx-5 mt-5">
+                    <div class="row mx-auto w-75">
+                        <div class="col">
+                            <button class="btn btn-block btn-warning form-buttons" type="button"
+                                (click)="register()">Register</button>
+                            <button class="btn btn-block btn-danger form-buttons" type="button"
+                                (click)="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

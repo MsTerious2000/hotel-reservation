@@ -1,13 +1,73 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
+  <title>Hotel Reservation</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/images/smcc_logo.ico">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      background-image: url('assets/images/background/background-dark.jpg');
+      background-size: cover;
+    }
+  </style>
 </head>
-<body>
+
+<body onload="initClock()">
   <app-root></app-root>
 </body>
+
 </html>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var day = now.getDay();
+    var month = now.getMonth();
+    var date = now.getDate();
+    var year = now.getFullYear();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    var period = "am";
+
+    if (hour == 0) {
+      hour = 12;
+    }
+    if (hour > 12) {
+      hour = hour - 12;
+      period = "pm";
+    }
+
+    Number.prototype.pad = function (digits) {
+      for (var n = this.toString(); n.length < digits; n = 0 + n);
+      return n;
+    }
+
+    var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    var weeks = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    var id = ["day", "month", "dayNumber", "year", "hour", "minutes", "seconds", "period"];
+    var values = [weeks[day], months[month], date.pad(2), year, hour.pad(2), minute.pad(2), second.pad(2), period];
+
+    for (var i = 0; i < id.length; i++) {
+      document.getElementById(id[i]).firstChild.nodeValue = values[i];
+    }
+  }
+
+  function initClock() {
+    updateClock();
+    window.setInterval("updateClock()", 1);
+  }
+</script>
