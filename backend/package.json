@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nodemon node | ng serve --open",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint"
   },
