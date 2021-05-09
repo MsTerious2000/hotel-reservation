@@ -1,0 +1,13 @@
+locate to the backend directory, run the command in the terminal
+cd backend
+
+
+run the backend server with the next command:
+npm start
+
+
+if it has errors, install the following packages with this command in the terminal:
+npm i body-parser cors dotenv express mongoose nodemon router
+
+
+-CasaDeQuirrejacino
