@@ -10,26 +10,26 @@ export class ReservationService {
   constructor(private httpClient: HttpClient) { }
 
   getReservationData() {
-    return this.httpClient.get(environment.apiUrl + '/reservations');
+    return this.httpClient.get('http://localhost:2000/api/reservations');
   }
 
   getReservationById(id: any) {
-    return this.httpClient.get(environment.apiUrl + '/reservation/' + id);
+    return this.httpClient.get('http://localhost:2000/api/reservation/' + id);
   }
 
   updateReservation(id: any, data: any) {
-    return this.httpClient.put(environment.apiUrl + '/reservation/update/' + id, data);
+    return this.httpClient.put('http://localhost:2000/api/reservation/update/' + id, data);
   }
 
   reserveName(data: any) {
-    return this.httpClient.post(environment.apiUrl + '/reservation/addName', data);
+    return this.httpClient.post('http://localhost:2000/api/reservation/addName', data);
   }
 
   reserve(data: any) {
-    return this.httpClient.post(environment.apiUrl + '/reservation/add', data);
+    return this.httpClient.post('http://localhost:2000/api/reservation/add', data);
   }
 
   deleteData(id: any) {
-    return this.httpClient.delete(environment.apiUrl + '/reservation/' + id);
+    return this.httpClient.delete('http://localhost:2000/api/reservation/' + id);
   }
 }

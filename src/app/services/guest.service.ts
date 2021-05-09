@@ -10,22 +10,22 @@ export class GuestService {
   constructor(private httpClient: HttpClient) { }
 
   getGuest() {
-    return this.httpClient.get(environment.apiUrl + '/guests');
+    return this.httpClient.get('http://localhost:2000/api/guests');
   }
 
   getGuestById(id: any) {
-    return this.httpClient.get(environment.apiUrl + '/guest/' + id);
+    return this.httpClient.get('http://localhost:2000/api/guest/' + id);
   }
   
   updateData(id: any, data: any) {
-    return this.httpClient.put(environment.apiUrl + '/guest/update/' + id, data);
+    return this.httpClient.put('http://localhost:2000/api/guest/update/' + id, data);
   }
 
   register(data: any) {
-    return this.httpClient.post(environment.apiUrl + '/guest/add', data);
+    return this.httpClient.post('http://localhost:2000/api/guest/add', data);
   }
 
   deleteData(id: any) {
-    return this.httpClient.delete(environment.apiUrl + '/guest/' + id);
+    return this.httpClient.delete('http://localhost:2000/api/guest/' + id);
   }
 }

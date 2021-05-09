@@ -10,14 +10,14 @@ export class FeedbackService {
   constructor(private httpClient: HttpClient) { }
 
   getFeedbacks() {
-    return this.httpClient.get(environment.apiUrl + '/feedbacks');
+    return this.httpClient.get('http://localhost:2000/api/feedbacks');
   }
 
   addFeedback(data: any) {
-    return this.httpClient.post(environment.apiUrl + '/feedback/add', data);
+    return this.httpClient.post('http://localhost:2000/api/feedback/add', data);
   }
 
   deleteFeedback(id: any) {
-    return this.httpClient.delete(environment.apiUrl + '/feedback/' + id);
+    return this.httpClient.delete('http://localhost:2000/api/feedback/' + id);
   }
 }
